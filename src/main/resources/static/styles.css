@@ -1,0 +1,107 @@
+/* Estilos adicionais para as páginas */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: #999;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+/* Estilos específicos para cada página */
+
+/* Estilos para a página de adicionar produto */
+#productName,
+#productValue {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* Estilos para a página de listar produtos */
+#productList {
+    padding: 0;
+}
+
+/* Estilos para a página de obter produto */
+#getProductId {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+#productById {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+/* Estilos para a página de atualizar produto */
+#updateProductId,
+#updatedProductName,
+#updatedProductValue {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* Estilos para a página de excluir produto */
+#deleteProductId {
+    display: block;
+    margin: 0 auto 20px;
+}
