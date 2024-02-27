@@ -47,8 +47,8 @@ public class ProductController {
         List<ProductModel> productsList = productRepository.findAll();
         if(!productsList.isEmpty()){
             for(ProductModel product : productsList){
-                UUID id = product.getIdProduct();
-                product.add(linkTo(methodOn(ProductController.class).getOneProduct(id)).withSelfRel()); // cria um link para o metodo getOneProduct
+                String name = product.getName();
+                product.add(linkTo(methodOn(ProductController.class).getOneProduct(name)).withSelfRel()); // cria um link para o metodo getOneProduct
             }
         }
         return ResponseEntity.status(HttpStatus.OK).body(productsList);
@@ -56,9 +56,9 @@ public class ProductController {
 
 
     // LISTAR UM PRODUTO ESPECÍFICO
-    @GetMapping("/products/{id}")
-    public ResponseEntity<Object> getOneProduct(@PathVariable(value = "id") UUID id){
-        Optional<ProductModel> productO = productRepository.findById(id); //Optional significa que pode ou nao ter algum valor presente
+    @GetMapping("/products/{name}")
+    public ResponseEntity<Object> getOneProduct(@PathVariable(value = "name") String name){
+        Optional<ProductModel> productO = productRepository.findByName(name); //Optional significa que pode ou nao ter algum valor presente
         if(productO.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found.");
         }
@@ -81,9 +81,9 @@ public class ProductController {
 
 
     // DELETAR PRODUTO
-    @DeleteMapping("/products/{id}")
-    public ResponseEntity<Object> deleteProduct(@PathVariable(value = "id") UUID id){
-        Optional<ProductModel> productO = productRepository.findById(id);
+    @DeleteMapping("/products/{name}")
+    public ResponseEntity<Object> deleteProduct(@PathVariable(value = "name") String name){
+        Optional<ProductModel> productO = productRepository.findByName(name);
         if(productO.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found.");
         }
